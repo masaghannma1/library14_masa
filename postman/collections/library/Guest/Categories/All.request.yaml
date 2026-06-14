@@ -1,0 +1,8 @@
+$kind: http-request
+url: "{{url}}/categories?name=ب"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  name: ب
+order: 2000

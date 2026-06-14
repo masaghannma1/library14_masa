@@ -1,0 +1,6 @@
+$kind: http-request
+url: http://localhost:8000/api/books/55
+method: GET
+headers:
+  Accept: application/json
+order: 2000

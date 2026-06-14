@@ -1,0 +1,15 @@
+$kind: http-request
+url: "{{url}}/login"
+method: POST
+headers:
+  Accept: application/json
+body:
+  type: json
+  content: "{\r
+
+    \    \"email\": \"admin@test.com\",\r
+
+    \    \"password\": \"123\"\r
+
+    }"
+order: 1000

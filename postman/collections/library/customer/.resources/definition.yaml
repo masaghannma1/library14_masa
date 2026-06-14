@@ -1,0 +1,8 @@
+$kind: collection
+auth:
+  - id: 35439c05-5ce5-492d-95bf-dd39d97e6f27
+    type: bearer
+    name: bearer auth
+    credentials:
+      token: "{{auth_secret_0bxb}}"
+order: 1000

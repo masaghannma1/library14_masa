@@ -1,0 +1,10 @@
+$kind: http-request
+url: "{{url}}/logout"
+method: POST
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: 5|l5FJu19T8ICFNvrEXZFOe3r5l5tU0KPDOhBaqvG16bd62bc5
+order: 2000

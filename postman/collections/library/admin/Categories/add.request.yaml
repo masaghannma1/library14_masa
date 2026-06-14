@@ -1,0 +1,15 @@
+$kind: http-request
+url: "{{url}}/categories"
+method: POST
+headers:
+  Accept: application/json
+body:
+  type: json
+  content: "{\r
+
+    \   \"name\": \"Ecomomic\",\r
+
+    \    \"description\" : \"how ...\"\r
+
+    }"
+order: 1000

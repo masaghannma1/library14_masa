@@ -1,0 +1,31 @@
+$kind: http-request
+url: "{{url}}/books"
+method: POST
+headers:
+  Accept: application/json
+body:
+  type: formdata
+  content:
+    - type: text
+      key: ISBN
+      value: "1111222333441"
+    - type: text
+      key: title
+      value: تيسير الأمور القدور
+    - type: text
+      key: category_id
+      value: "3"
+    - type: text
+      key: pages
+      value: "100"
+    - type: file
+      key: cover
+      src:
+        - /C:/Users/Admin/Pictures/كتاب.gif
+    - type: text
+      key: authors[]
+      value: "8"
+    - type: text
+      key: authors[]
+      value: "2"
+order: 1000

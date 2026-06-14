@@ -1,0 +1,15 @@
+$kind: http-request
+url: "{{url}}/categories/2"
+method: PUT
+headers:
+  Accept: application/json
+body:
+  type: json
+  content: "{\r
+
+    \    \"name\" : \"web\",\r
+
+    \    \"description\" : \"how make site ...\"\r
+
+    }"
+order: 2000

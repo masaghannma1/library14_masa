@@ -1,0 +1,17 @@
+$kind: http-request
+url: "{{url}}/register"
+method: POST
+headers:
+  Accept: application/json
+body:
+  type: json
+  content: "{\r
+
+    \    \"name\": \"Admin-test\",\r
+
+    \    \"email\": \"admin1@test.com\",\r
+
+    \    \"password\": \"123456\"\r
+
+    }"
+order: 1000
