@@ -24,13 +24,14 @@ class ِِAuthController extends Controller
        'password' => Hash::make($data['password']),
         'type' => 'customer' ]);
 
-       $customer = Customer::create([ 'user_id' => $user->id, 
- 'name' => $data['name'],
+      $user->customer()->create([
+    'name' => $data['name'],
     'gender' => $data['gender'] ?? null,
     'DOB' => $data['DOB'] ?? null,
     'phone' => $data['phone'],
     'avatar' => $data['avatar'] ?? null,
-    'lang' => $data['lang'] ?? 'ar' ]);
+    'lang' => $data['lang'] ?? 'ar',
+]);
     
      $token = $user->createToken('api token');
          return apiSuccess("تم إنشاء الحساب",

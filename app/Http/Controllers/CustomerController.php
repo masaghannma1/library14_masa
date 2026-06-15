@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\CustomerRequest;
 use Illuminate\Http\Request;
+
 
 class CustomerController extends Controller
 {
@@ -49,11 +52,34 @@ class CustomerController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
-    {
-        //
+    //debug . too few arguments 
+public function update(CustomerRequest $request)
+{
+    $customer = $request->user()->customer;
+    
+    if (!$customer) {
+        return apiFail('Customer profile not found', 404);
     }
 
+    $data = $request->validated();
+
+    if ($request->hasFile('avatar')) {
+
+        if ($customer->avatar) {
+            Storage::delete("customer-avatars/{$customer->avatar}");
+        }
+
+        $filename = time() . "." . $request->file('avatar')->extension();
+
+        $request->file('avatar')->storeAs('customer-avatars', $filename);
+
+        $data['avatar'] = $filename;
+    }
+
+    $customer->update($data);
+
+    return apiSuccess('customer updated successfully', $customer);
+}
     /**
      * Remove the specified resource from storage.
      */

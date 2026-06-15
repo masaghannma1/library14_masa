@@ -26,7 +26,7 @@ class CustomerRequest extends FormRequest
      return [ 'name' => 'required|string|max:255',
     'gender' => 'nullable|in:M,F',
     'DOB' => 'nullable|date', 
-    'phone' => 'required|string|unique:customers,phone,' . $customer?->id,
+'phone' => 'required|string|unique:customers,phone,' . optional($this->user()->customers()->first())->id,
     'avatar' => 'nullable|image|mimes:jpg,jpeg,png|max:2048', 
     'lang' => 'required|in:ar,en', ];
 

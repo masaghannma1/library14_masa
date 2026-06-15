@@ -23,4 +23,11 @@ class Book extends Model
     function authors():BelongsToMany{
         return $this->belongsToMany(Author::class);
     }
+
+
+
+    public function ratings()
+{
+    return $this->hasMany(Rating::class);
+}
 }

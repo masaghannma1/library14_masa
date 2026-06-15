@@ -31,6 +31,5 @@ Route::controller(ِِAuthController::class)->group(function () {
 });
 
 // from src يجب أن يتيح النظام للعميل تحديث بياناته الشخصية.
-Route::put('customer/profile',
-    [CustomerController::class, 'update']
-)->middleware('auth:sanctum');
+Route::put('customer/profile', [CustomerController::class, 'update'])
+    ->middleware('auth:sanctum');
