@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
-class RegisterRequest extends FormRequest
+class CustomerRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -21,14 +21,14 @@ class RegisterRequest extends FormRequest
      * @return array<string, ValidationRule|array<mixed>|string>
      */
     public function rules(): array
-    {
-   return [ 'email' => 'required|email|unique:users',
-    'password' => 'required|min:6',
-     'name' => 'required|string|max:100', 
-     'gender' => 'nullable|in:M,F', 
-     'DOB' => 'nullable|date', 
-     'phone' => 'required|unique:customers',
-      'avatar' => 'nullable|image|max:2000', 
-      'lang' => 'in:ar,en' ];
-    }
+{
+    $customer = $this->route('customer'); 
+     return [ 'name' => 'required|string|max:255',
+    'gender' => 'nullable|in:M,F',
+    'DOB' => 'nullable|date', 
+    'phone' => 'required|string|unique:customers,phone,' . $customer?->id,
+    'avatar' => 'nullable|image|mimes:jpg,jpeg,png|max:2048', 
+    'lang' => 'required|in:ar,en', ];
+
+}
 }
