@@ -6,6 +6,7 @@ use App\Http\Controllers\ِِAuthController;
 use App\Http\Controllers\CustomerController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CartController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -33,3 +34,9 @@ Route::controller(ِِAuthController::class)->group(function () {
 // from src يجب أن يتيح النظام للعميل تحديث بياناته الشخصية.
 Route::put('customer/profile', [CustomerController::class, 'update'])
     ->middleware('auth:sanctum');
+
+
+    
+    Route::middleware('auth:sanctum')->group(function () {
+    Route::post('/cart/items', [CartController::class, 'addItem']);
+});

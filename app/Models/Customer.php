@@ -4,6 +4,7 @@ namespace App\Models;
 use App\Models\BookRequest;
 use App\Models\waitingList;
 use App\Models\Bill;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Model;
@@ -44,4 +45,9 @@ public function bills(): HasMany
 {
     return $this->hasMany(Bill::class);
 }
+public function cart(): HasOne
+{
+    return $this->hasOne(Cart::class);
+}
+
 }
